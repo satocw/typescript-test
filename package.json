@@ -7,8 +7,8 @@
     "start": "npm run clean && npm run build && npm test",
     "clean": "rimraf ./dist",
     "build": "tsc --outDir ./dist",
-    "test": "mocha --timeout 50000 --compilers ts:espower-typescript/guess ./src/**/*.spec.*",
-    "karma": "karma start"
+    "mocha": "mocha --timeout 50000 --compilers ts:espower-typescript/guess ./src/**/*.spec.*",
+    "test": "karma start"
   },
   "files": [
     "dist"

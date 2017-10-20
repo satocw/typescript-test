@@ -1,6 +1,6 @@
 import * as assert from 'power-assert';
 
-describe('オブジェクト同士の比較', () => {
+describe('オブジェクト同士の比較', () => {   
     let obj = { "a": "AAA", "b": "bbb" };
     let newObj = obj;
 
@@ -36,6 +36,11 @@ describe('オブジェクト同士の比較', () => {
             assert(nestedObj.a.b === "DDD");
             assert(nestedObj === newNestedObj);
             assert(nestedObj.a === newNestedObj.a);
+        });
+
+        it('DeepEqual', () => {
+            newNestedObj.a = { "b": "EEE" };
+            assert.deepEqual(nestedObj, newNestedObj);
         });
     });
 });

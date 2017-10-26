@@ -15,6 +15,12 @@ module.exports = function (config) {
         preprocessors: {
             '**/*.ts': ['karma-typescript']
         },
+
+        karmaTypescriptConfig: {
+            compilerOptions: {
+                target: "es2015"
+            }
+        },
         
         // テスト結果を装飾するreporterの種類
         reporters: ['mocha', 'karma-typescript'],

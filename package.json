@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && npm run build && npm test",
+    "start": "npm run clean && npm run build",
     "clean": "rimraf ./dist",
-    "build": "tsc --outDir ./dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:script": "tsc -w --outDir ./dist",
+    "build:files": "cpx src/*.{html,css} dist -w",
     "mocha": "mocha --timeout 50000 --compilers ts:espower-typescript/guess ./src/**/*.spec.*",
     "test": "karma start"
   },
@@ -23,12 +25,14 @@
     "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.46",
     "espower-typescript": "^8.1.1",
+    "cpx": "^1.5.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-typescript": "^3.0.8",
     "mocha": "^4.0.1",
+    "npm-run-all": "^4.1.2",
     "power-assert": "^1.4.4",
     "rimraf": "^2.6.2",
     "typescript": "^2.5.3"
